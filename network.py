@@ -8,9 +8,9 @@ import torch
 ## Making and loading the model
 
 
-class InceptionBlock(nn.Module):
+class MSCLayer(nn.Module):
     def __init__(self, output_filters, w_bits, a_bits, bias=True):
-        super(InceptionBlock, self).__init__()
+        super(MSCLayer, self).__init__()
         filters_in = 2
         stride = 4
         ksize1 = 32
@@ -91,7 +91,7 @@ class AaronNet(nn.Module):
         filters_conv0, ksize0, padding0, w_bits0, a_bits0, pool_size0, bias0 = conf0
 
         layers = []
-        self.expand = InceptionBlock(filters_conv0, w_bits0, a_bits0)
+        self.expand = MSCLayer(filters_conv0, w_bits0, a_bits0)
         filters_in = filters_conv0
     
         for filters, k, pad, w_bit, a_bit, pool, bias in conf1:
