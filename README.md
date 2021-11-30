@@ -5,7 +5,7 @@
   - [Table Of Contents](#table-of-contents)
   - [Metrics](#metrics)
   - [Usage:](#usage)
-  - [Team AaronNet](#team-aaronnet)
+  - [Team Aaronica](#team-aaronnet)
 
 
 ## Metrics
