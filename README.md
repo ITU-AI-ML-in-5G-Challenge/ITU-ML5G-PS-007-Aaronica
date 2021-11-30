@@ -10,13 +10,13 @@
 
 ## Metrics
 1. AaronNet Pruned: 
-- **Pruned Network Accuracy** `56.07`
+- **Network Accuracy** `56.07`
 - **Inference Cost** `0.01539`
 2. AaronNet Base (used for pruning):
-- **Pruned Network Accuracy** `58.48`
+- **Network Accuracy** `58.48`
 - **Inference Cost** `0.05722`
 2. AaronNet Large:
-- **Pruned Network Accuracy** `60.07`
+- **Network Accuracy** `60.07`
 - **Inference Cost** `0.04320`
 
 
