@@ -43,7 +43,7 @@ Argument List and help:
 ('--checkpoint', default='submission_unpruned.pth', help='Starting Checkpoint')
 ('--w_dec', default=0.0, help='Weight Decay. Set to 0 to disable.')
 ('--nbits', default=8, help='Number of Quantization bits')
-('--prn_list', default=[], help='Percentages of Pruning each Iteration. If not set, you have to use fixed percentage (prn_per))
+('--prn_list', default=[], help='Percentages of Pruning each Iteration. If not set, you have to use fixed percentage (prn_per)')
 ('--prn_per', default=30, help='Fixed Pruning Percentage')
 ('--out_folder', default='result', help='Path to Save the Log File and Checkpoints.')
 ('--gpu_num', default=0, help='Select GPU. Set to -1 to run on CPU')
