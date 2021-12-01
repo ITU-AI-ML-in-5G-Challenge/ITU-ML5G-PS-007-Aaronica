@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import torch 
 from sklearn.metrics import accuracy_score
+import numpy as np
 
 def train(model, train_loader, optimizer, criterion, gpu):
     losses = []
@@ -44,3 +45,19 @@ def test(model, test_loader, gpu):
         
     return accuracy_score(y_true, y_pred)
 
+def test_over_snr(y_exp, y_pred_inp, indices_snr, dataset):
+    y_exp_i = y_exp[indices_snr]
+    y_pred_i = y_pred_inp[indices_snr]
+    conf = np.zeros([len(dataset.mod_classes),len(dataset.mod_classes)])
+    confnorm = np.zeros([len(dataset.mod_classes),len(dataset.mod_classes)])
+    
+    for i in range(len(y_exp_i)):
+        j = int(y_exp_i[i])
+        k = int(np.argmax(y_pred_i[i,:]))
+        conf[j,k] = conf[j,k] + 1
+    for i in range(0,len(dataset.mod_classes)):
+        confnorm[i,:] = conf[i,:] / np.sum(conf[i,:])
+    cor = np.sum(np.diag(conf))
+    ncor = np.sum(conf) - cor
+    
+    return cor/(cor + ncor)

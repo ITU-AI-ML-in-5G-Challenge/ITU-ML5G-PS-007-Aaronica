@@ -1,0 +1,12 @@
+{
+  "discount_sparsity": true,
+  "mem_o_FLOAT32": 49275.0,
+  "mem_w_SCALEDINT6": 3160.0,
+  "op_mac_FLOAT32_SCALEDINT6": 24889.0,
+  "op_mac_SCALEDINT6_SCALEDINT6": 114622.0,
+  "op_mac_SCALEDUINT6_SCALEDINT6": 115660.0,
+  "total_bops": 13068840.0,
+  "total_mem_o_bits": 1576800.0,
+  "total_mem_w_bits": 18960.0,
+  "unsupported": "{'GlobalMaxPool'}"
+}
