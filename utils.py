@@ -61,3 +61,23 @@ def plot_confusion_matrix(cm, title='Confusion matrix', cmap=plt.cm.Blues, label
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
+    
+def sparsity_report(model, layerwise_report=False):
+    overall_sparsity = []
+    name_sparsity_pair = []
+    for name, param in model.named_parameters():
+        numerator = float(torch.sum(param == 0))
+        denumerator = float(param.nelement())
+        sparsity = 100 * float(numerator / denumerator)
+        if name.endswith('weight'):
+            name_sparsity_pair.append((name, sparsity))
+            overall_sparsity.append([numerator, denumerator])
+
+    global_sparsity = np.sum(np.array(overall_sparsity[::2]), 0)
+    print(f"Global sparsity is: {global_sparsity[0] / global_sparsity[1]}\n\n")
+    print(f"Total number of parameters is {global_sparsity[1]}")
+    print(f"Total number of parameters after pruning is {global_sparsity[1] - global_sparsity[0]}")
+    if layerwise_report == True:
+        outputs = name_sparsity_pair[::2]
+        for output in outputs:
+            print(f"Sparsity in {output[0]} is {output[1]:2f}%")
