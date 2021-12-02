@@ -76,7 +76,7 @@ def sparsity_report(model, layerwise_report=False):
     global_sparsity = np.sum(np.array(overall_sparsity[::2]), 0)
     print(f"Global sparsity is: {global_sparsity[0] / global_sparsity[1]}\n\n")
     print(f"Total number of parameters is {global_sparsity[1]}")
-    print(f"Total number of parameters after pruning is {global_sparsity[1] - global_sparsity[0]}")
+    print(f"Total number of parameters after pruning is {global_sparsity[1] - global_sparsity[0]}\n\n\n")
     if layerwise_report == True:
         outputs = name_sparsity_pair[::2]
         for output in outputs:
